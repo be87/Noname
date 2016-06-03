@@ -39,7 +39,9 @@ public class DAODonnees {
 		dbacces.close();
 	}
 	
-	
+	/*
+	 * permet d'inserer un employe a la BD
+	 */
 	public void Insert(Employe e) throws SQLException {		
 	
 		String requete = "INSERT INTO employe (nom,prenom, etat) VALUES (?,?,'True')";
@@ -76,7 +78,9 @@ public class DAODonnees {
 		
 		close();
 	}
-	
+	/*
+	 * permet de chercher un employe en fonction de son nom et prenom
+	 */
 	public Employe chercherEmploye(String nom, String prenom) throws SQLException {		
 		
 		Employe result = Factory.getEmploye();
@@ -131,7 +135,9 @@ public class DAODonnees {
 		return result;
 		
 	}
-	
+	/*
+	 * inserer un tache a initialisation et employe associe a elle
+	 */
 public void Insert(Tache t) throws SQLException {		
 		
 		String requete = "INSERT INTO tache (typeDeTache,adresse, datedebut, datefin, listEmploye) VALUES (?,?,?,?,?)";

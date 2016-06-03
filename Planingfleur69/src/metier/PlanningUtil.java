@@ -23,7 +23,9 @@ public class PlanningUtil {
 	
 	private PlanningUtil() {
 	}
-	
+	/*
+	 * creer une tache et l'ajoute a un employee c'est juste initialisation inserer a la BD
+	 */
 	public Tache addTache(Employe e, String typeDeTache, String adresse, Date dateDebut, Date dateFinReal) throws SQLException{
 		
 		List<Employe> lstEmployee = new ArrayList<Employe>();
@@ -43,28 +45,44 @@ public class PlanningUtil {
 		return ts;
 		
 	}
-	
+	/*
+	 * modifier le type de tache
+	 */
 	public void modifTachetype(Tache t,String str){
 		t.setTypeDeTache(str);
 	}
-	
+	/*
+	 * modifier la date de debut de tache
+	 */
 	public void modifTachedatedebut(Tache t,Date dt){
 		t.setDateDebutReal(dt);
 	}
+	/*
+	 * modifier la date de fin de tache
+	 */
 	
 	public void modifFinTache(Tache t,Date dateFinReal){
 		t.setDateFin(dateFinReal);
 	}
+	/*
+	 * supprimer une tache
+	 */
 	public void deleteTache(Tache t){
 		t=null;
 	}
+	
+	/*
+	 * associer un materiel a la BD et inserer a la BD
+	 */
 	public void associerMatos(Tache t, Materiel m){
 		List<Materiel> lsMatos = new ArrayList<Materiel>();
 		lsMatos.addAll(t.getLstMatos());
 		lsMatos.add(m);
 		t.setLstMatos(lsMatos);
 	}
-	
+	/*
+	 * associer un employer a une tache et inserer a la BD
+	 */
 	public void associerEmploye(Tache t, Employe e){
 		List<Employe> lsEmp = new ArrayList<Employe>();
 		lsEmp.addAll(t.getLstEmploye());
