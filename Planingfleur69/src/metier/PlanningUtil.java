@@ -1,5 +1,6 @@
 package metier;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,7 @@ import Entite.Employe;
 import Entite.Factory;
 import Entite.Materiel;
 import Entite.Tache;
+import dao.DAODonnees;
 
 public class PlanningUtil {
 	private static PlanningUtil instance = null;
@@ -22,7 +24,7 @@ public class PlanningUtil {
 	private PlanningUtil() {
 	}
 	
-	public Tache addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Date dateFinReal){
+	public Tache addTache(Employe e, String typeDeTache, String adresse, Date dateDebut, Date dateFinReal) throws SQLException{
 		
 		List<Employe> lstEmployee = new ArrayList<Employe>();
 		List<Materiel> lstMateriel = new ArrayList<Materiel>();
@@ -32,9 +34,12 @@ public class PlanningUtil {
 		ts.setDateDebutReal(dateDebut);
 		ts.setLstEmploye(lstEmployee);
 		ts.setTypeDeTache(typeDeTache);
+		ts.setAdresse(adresse);
 		ts.setDateFin(dateFinReal);
 		ts.setTypeDeTache(typeDeTache);
 		ts.setLstMatos(lstMateriel);
+		DAODonnees DAOD = DAODonnees.getInstance();
+		DAOD.Insert(ts);
 		return ts;
 		
 	}
