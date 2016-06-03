@@ -1,5 +1,7 @@
 package metier;
 
+import Entite.Employe;
+
 public class EmployeUtil {
 
 	private static EmployeUtil instance = null;
@@ -10,14 +12,14 @@ public class EmployeUtil {
 		}
 		return instance;
 	}
-	
-	public void modifEmploye(Employe e, String nom, String prenom){
-		e.nom = nom;
-		e.prenom = prenom;
+
+	public void modifEmploye(Employe e, String nom, String prenom) {
+		e.setNom(nom);
+		e.setPrenom(prenom);
 	}
-	
-	public void deleteEmploye(Employe e){
+
+	public void deleteEmploye(Employe e) {
 		e = null;
 	}
-	
+
 }
