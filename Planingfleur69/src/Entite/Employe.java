@@ -2,17 +2,17 @@ package Entite;
 
 public class Employe {
 
-	int id;
+	int idEmploye;
 	String nom;
 	String prenom;
 	boolean etat;
 
 	public int getId() {
-		return id;
+		return idEmploye;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idEmploye = id;
 	}
 
 	public String getNom() {
@@ -41,7 +41,7 @@ public class Employe {
 
 	public Employe(int id, String nom, String prenom, boolean etat) {
 		super();
-		this.id = id;
+		this.idEmploye = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.etat = etat;
@@ -49,7 +49,7 @@ public class Employe {
 
 	@Override
 	public String toString() {
-		return "Employe [id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", etat=" + etat + "]";
+		return "Employe [id=" + idEmploye + ", nom=" + nom + ", prenom=" + prenom + ", etat=" + etat + "]";
 	}
 
 }
