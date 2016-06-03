@@ -27,7 +27,7 @@ public class Exec {
 		Materiel m1 = Factory.getMateriel();
 		Tache t = pu.addTache(e, "debrouissailler", "Allee des noisetiers", sdf.parse("2016-06-03"), 1);
 		
-		//eu.modifEmploye(e, "Wallace", "William");
+		eu.modifEmploye(e, "Wallace", "William");
 		eu.modifEmploye(e1, "Rabbit", "Roger");
 		mu.modifMateriel(m, "scie cirulaire");
 		mu.modifMateriel(m1, "rotofil");
@@ -48,7 +48,7 @@ public class Exec {
 		pu.associerEmploye(t, e1);
 		
 		System.out.println(t.getLstEmploye());
-		
+				
 		
 		
 
