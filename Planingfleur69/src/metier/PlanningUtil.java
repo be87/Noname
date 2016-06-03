@@ -23,7 +23,7 @@ public class PlanningUtil {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Integer duree){
+	public Tache addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Integer duree){
 		
 		List<Employe> lstEmploye = new ArrayList<Employe>();
 		List<Materiel> lstMateriel = new ArrayList<Materiel>();
@@ -36,6 +36,7 @@ public class PlanningUtil {
 		ts.setDureejour(duree);
 		ts.setTypeDeTache(typeDeTache);
 		ts.setLstMatos(lstMateriel);
+		return ts;
 		
 	}
 	
@@ -53,6 +54,21 @@ public class PlanningUtil {
 	public void deleteTache(Tache t){
 		t=null;
 	}
+	public void associerMatos(Tache t, Materiel m){
+		List<Materiel> lsMatos = new ArrayList<Materiel>();
+		lsMatos.addAll(t.getLstMatos());
+		lsMatos.add(m);
+		t.setLstMatos(lsMatos);
+	}
+	
+	public void associerEmploye(Tache t, Employe e){
+		List<Employe> lsEmp = new ArrayList<Employe>();
+		lsEmp.addAll(t.getLstEmploye());
+		lsEmp.add(e);
+		t.setLstEmploye(lsEmp);
+	}
+	
+	
 	
 	
 
