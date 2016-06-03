@@ -1,6 +1,5 @@
 package metier;
 
-import Entite.Employe;
 import Entite.Materiel;
 
 public class MaterielUtil {

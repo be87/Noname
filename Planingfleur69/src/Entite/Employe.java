@@ -47,10 +47,12 @@ public class Employe {
 		this.etat = etat;
 	}
 
+	public Employe() {
+	}
+
 	@Override
 	public String toString() {
 		return "Employe [id=" + idEmploye + ", nom=" + nom + ", prenom=" + prenom + ", etat=" + etat + "]";
 	}
 
 }
-
