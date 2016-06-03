@@ -20,7 +20,6 @@ public class PlanningUtil {
 	}
 	
 	private PlanningUtil() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Tache addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Date dateFinReal){
