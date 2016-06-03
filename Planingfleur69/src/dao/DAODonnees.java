@@ -1,12 +1,14 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import Entite.Employe;
+import Entite.Factory;
 import Entite.Tache;
 
 public class DAODonnees {
@@ -73,6 +75,61 @@ public class DAODonnees {
 			}
 		
 		close();
+	}
+	
+	public Employe chercherEmploye(String nom, String prenom) throws SQLException {		
+		
+		Employe result = Factory.getEmploye();
+		ResultSet resultat = null;
+		String requete = "SELECT * FROM employe WHERE nom = ? AND prenom = ?;";
+		PreparedStatement ps = null;
+		// Statement stmt = null;
+
+		// connexion à la base de données
+		getConnection();
+		// envoi de la requete
+		try {
+			ps = dbacces.getConnection().prepareStatement(requete);
+			ps.setString(1,nom);
+			ps.setString(2, prenom);
+			// stmt = dbaccess.getConnection().createStatement();
+			resultat = ps.executeQuery();
+			// resultat = stmt.executeQuery(requete);
+		} catch (SQLException e1) {
+			System.out.println("Erreur lors de la création ou de l'exécution da la requete de selection");
+		}
+
+		// traitement des résultats
+		try {
+			if (resultat.next()) {
+				result.setId(resultat.getInt("id"));
+				result.setPrenom(resultat.getString("prenom"));
+				result.setNom(resultat.getString("nom"));
+				result.setEtat(Boolean.parseBoolean(resultat.getString("etat")));
+			}
+		} catch (SQLException e) {
+			System.out.println("Erreur lors de la récupération des données du select");
+		}
+
+		if (result == null) {
+			System.out.println("Aucune donnée récupérée depuis la base de données");
+		}
+
+		// fermeture du ResultSet ainsi que de la connexion
+		try {
+			ps.close();
+		} catch (SQLException e1) {
+			System.out.println("Erreur lors de la fermeture du statement de selection");
+		}
+		try {
+			resultat.close();
+		} catch (SQLException e) {
+			System.out.println("Erreur lors de la fermeture du ResultSet");
+		}
+		close();
+
+		return result;
+		
 	}
 	
 public void Insert(Tache t) throws SQLException {		
