@@ -22,7 +22,7 @@ import metier.PlanningUtil;
 /**
  * Servlet implementation class MajoriteServlet
  */
-@WebServlet("/MajoriteServlet")
+@WebServlet("/PlanningServlet")
 public class PlanningServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -39,10 +39,8 @@ public class PlanningServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		PlanningBean bean = new PlanningBean("", "", "");
 		Date date1 = new Date();
 		Date date2 = new Date();
@@ -74,19 +72,19 @@ public class PlanningServlet extends HttpServlet {
 
 			ArrayList<Tache> lstTache = new ArrayList<Tache>();
 			lstTache.add(t);
-			String toprint = "";
+			String toPrint = "";
 
 			for (Tache T : lstTache) {
 				if (date1.before(T.getDateDebutReal()) == true && date2.after(T.getDateFin()) == true) {
-					toprint += "<b>Tache : </b>" + T.getTypeDeTache() + ",<b> Début : </b>" + T.getDateDebutReal() + "<br/>";
+					toPrint += "<b>Tache : </b>" + T.getTypeDeTache() + ",<b> Début : </b>" + T.getDateDebutReal()
+							+ "<br/>";
 				}
 			}
 
-			taches = "entre le " + sdf.format(date1) + " et le " + date2 + "<br/><br/>" + toprint;
+			taches = "entre le " + date1 + " et le " + date2 + "<br/><br/>" + toPrint;
 
 			bean = new PlanningBean(date1.toString(), date2.toString(), taches);
 		}
-
 		request.setAttribute("bean", bean);
 		request.getRequestDispatcher("/vue_planning.jsp").forward(request, response);
 	}

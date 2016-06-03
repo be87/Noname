@@ -13,7 +13,7 @@
 <body>
 
 <div id="selectDate">
-<form action="MajoriteServlet" method="get">
+<form action="PlanningServlet" method="get">
 Date de debut : <input type="text" NAME="DATE1" value="${bean.date1}"/><br/>
 Date de fin : <input type="text" NAME="DATE2" value="${bean.date2}"/><br/>
 <input type="submit" NAME="SUBDATE" value="valider"/>
