@@ -25,13 +25,13 @@ public class PlanningUtil {
 	
 	public Tache addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Integer duree){
 		
-		List<Employe> lstEmployee = new ArrayList<Employe>();
+		List<Employe> lstEmploye = new ArrayList<Employe>();
 		List<Materiel> lstMateriel = new ArrayList<Materiel>();
-		lstEmployee.add(e);
+		lstEmploye.add(e);
 		
 		Tache ts = Factory.getTache();
 		ts.setDateDebutReal(dateDebut);
-		ts.setLstEmploye(lstEmployee);
+		ts.setLstEmploye(lstEmploye);
 		ts.setTypeDeTache(typeDeTache);
 		ts.setDureejour(duree);
 		ts.setTypeDeTache(typeDeTache);
