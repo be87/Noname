@@ -25,7 +25,7 @@ public class Exec {
 		Employe e1 = Factory.getEmploye();
 		Materiel m = Factory.getMateriel();
 		Materiel m1 = Factory.getMateriel();
-		Tache t = pu.addTache(e, "debrouissailler", "Allee des noisetiers", sdf.parse("2016-06-03"), 1);
+		Tache t = pu.addTache(e, "debrouissailler", "Allee des noisetiers", sdf.parse("2016-06-03"), sdf.parse("2016-06-04"));
 		
 		eu.modifEmploye(e, "Wallace", "William");
 		eu.modifEmploye(e1, "Rabbit", "Roger");

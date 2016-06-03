@@ -8,7 +8,8 @@ public class Tache {
 	int idTache;
 	String typeDeTache;
 	Date dateDebutReal;
-	int dureejour;
+	Date dateFinReal;
+	String adresse;
 	List<Materiel> lstMatos;
 	List<Employe> lstEmploye;
 
@@ -18,6 +19,14 @@ public class Tache {
 
 	public void setIdTache(int idTache) {
 		this.idTache = idTache;
+	}
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
 
 	public String getTypeDeTache() {
@@ -36,12 +45,12 @@ public class Tache {
 		this.dateDebutReal = dateDebutReal;
 	}
 
-	public int getDureejour() {
-		return dureejour;
+	public Date getDateFin() {
+		return dateFinReal;
 	}
 
-	public void setDureejour(int dureejour) {
-		this.dureejour = dureejour;
+	public void setDateFin(Date dateFinReal) {
+		this.dateFinReal = dateFinReal;
 	}
 
 	public List<Materiel> getLstMatos() {
@@ -63,13 +72,14 @@ public class Tache {
 	public Tache() {
 	}
 
-	public Tache(int idTache, String typeDeTache, Date dateDebutReal, int dureejour, List<Materiel> lstMatos,
-			List<Employe> lstEmploye) {
+	public Tache(int idTache, String typeDeTache, String adresse, Date dateDebutReal, Date dateFinReal,
+			List<Materiel> lstMatos, List<Employe> lstEmploye) {
 		super();
 		this.idTache = idTache;
 		this.typeDeTache = typeDeTache;
+		this.adresse = adresse;
 		this.dateDebutReal = dateDebutReal;
-		this.dureejour = dureejour;
+		this.dateFinReal = dateFinReal;
 		this.lstMatos = lstMatos;
 		this.lstEmploye = lstEmploye;
 	}
@@ -77,7 +87,8 @@ public class Tache {
 	@Override
 	public String toString() {
 		return "Tache [idTache=" + idTache + ", typeDeTache=" + typeDeTache + ", dateDebutReal=" + dateDebutReal
-				+ ", dureejour=" + dureejour + ", lstMatos=" + lstMatos + ", lstEmploye=" + lstEmploye + "]";
+				+ ", dateFinReal=" + dateFinReal + ", adresse=" + adresse + ", lstMatos=" + lstMatos + ", lstEmploye="
+				+ lstEmploye + "]";
 	}
 
 }

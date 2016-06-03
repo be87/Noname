@@ -20,20 +20,19 @@ public class PlanningUtil {
 	}
 	
 	private PlanningUtil() {
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Tache addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Integer duree){
+	public Tache addTache(Employe e,String typeDeTache, String adresse, Date dateDebut, Date dateFinReal){
 		
-		List<Employe> lstEmploye = new ArrayList<Employe>();
+		List<Employe> lstEmployee = new ArrayList<Employe>();
 		List<Materiel> lstMateriel = new ArrayList<Materiel>();
-		lstEmploye.add(e);
+		lstEmployee.add(e);
 		
 		Tache ts = Factory.getTache();
 		ts.setDateDebutReal(dateDebut);
-		ts.setLstEmploye(lstEmploye);
+		ts.setLstEmploye(lstEmployee);
 		ts.setTypeDeTache(typeDeTache);
-		ts.setDureejour(duree);
+		ts.setDateFin(dateFinReal);
 		ts.setTypeDeTache(typeDeTache);
 		ts.setLstMatos(lstMateriel);
 		return ts;
@@ -48,8 +47,8 @@ public class PlanningUtil {
 		t.setDateDebutReal(dt);
 	}
 	
-	public void modifTacheduree(Tache t,Integer jour){
-		t.setDureejour(jour);
+	public void modifFinTache(Tache t,Date dateFinReal){
+		t.setDateFin(dateFinReal);
 	}
 	public void deleteTache(Tache t){
 		t=null;
