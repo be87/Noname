@@ -1,5 +1,7 @@
 package Entite;
 
+import dao.DAODonnees;
+
 public class Employe {
 
 	int idEmploye;
@@ -39,12 +41,12 @@ public class Employe {
 		this.etat = etat;
 	}
 
-	public Employe(int id, String nom, String prenom, boolean etat) {
+	public Employe(String nom, String prenom) {
 		super();
-		this.idEmploye = id;
+	
 		this.nom = nom;
 		this.prenom = prenom;
-		this.etat = etat;
+		
 	}
 
 	public Employe() {
