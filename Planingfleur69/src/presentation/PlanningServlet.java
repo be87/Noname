@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class PlanningServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -64,6 +66,8 @@ public class PlanningServlet extends HttpServlet {
 				t = pu.addTache(e, "debroussaillage", "dtc", sdf.parse("2015-06-03"), sdf.parse("2015-06-04"));
 			} catch (ParseException e1) {
 				t = null;
+			} catch (SQLException e1) {
+				t = null;
 			}
 
 			pu.associerEmploye(t, e);
@@ -74,11 +78,11 @@ public class PlanningServlet extends HttpServlet {
 
 			for (Tache T : lstTache) {
 				if (date1.before(T.getDateDebutReal()) == true && date2.after(T.getDateFin()) == true) {
-					toprint += "Tache : " + T.getTypeDeTache() + ", Début : " + T.getDateDebutReal() + "<br/>";
+					toprint += "<b>Tache : </b>" + T.getTypeDeTache() + ",<b> Début : </b>" + T.getDateDebutReal() + "<br/>";
 				}
 			}
 
-			taches = "entre  " + date1 + " et  " + date2 + "<br/>" + toprint;
+			taches = "entre le " + sdf.format(date1) + " et le " + date2 + "<br/><br/>" + toprint;
 
 			bean = new PlanningBean(date1.toString(), date2.toString(), taches);
 		}
