@@ -46,6 +46,10 @@ public class PlanningServlet extends HttpServlet {
 		Date date2 = new Date();
 		String taches;
 
+		/**
+		 * Recuperation des deux dates limites du planning
+		 */
+		
 		if (request.getParameter("DATE1") != null) {
 			try {
 				date1 = sdf.parse(request.getParameter("DATE1"));
@@ -53,6 +57,10 @@ public class PlanningServlet extends HttpServlet {
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
+			
+			/**
+			 * Creation employé et tache, puis liste de taches dont la date est à tester
+			 */
 
 			EmployeUtil eu = EmployeUtil.getInstance();
 			PlanningUtil pu = PlanningUtil.getInstance();
@@ -73,6 +81,11 @@ public class PlanningServlet extends HttpServlet {
 			ArrayList<Tache> lstTache = new ArrayList<Tache>();
 			lstTache.add(t);
 			String toPrint = "";
+			
+			/**
+			 * On parcours la liste des taches et on ne prends que celles dont la date de début est 
+			 * apres la date1 et dont la date de fin est avant la date2
+			 */
 
 			for (Tache T : lstTache) {
 				if (date1.before(T.getDateDebutReal()) == true && date2.after(T.getDateFin()) == true) {
@@ -80,6 +93,10 @@ public class PlanningServlet extends HttpServlet {
 							+ "<br/>";
 				}
 			}
+			
+			/**
+			 * taches représente le resultat à afficher 
+			 */
 
 			taches = "entre le " + date1 + " et le " + date2 + "<br/><br/>" + toPrint;
 
