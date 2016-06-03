@@ -48,6 +48,7 @@ public class Employe {
 	}
 
 	public Employe() {
+		this.etat = true;
 	}
 
 	@Override

@@ -38,6 +38,7 @@ public class Materiel {
 	}
 
 	public Materiel() {
+		this.etat = true;
 	}
 
 	@Override
