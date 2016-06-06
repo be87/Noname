@@ -21,7 +21,10 @@
 		<li><a href="vue_dispoemploye.jsp">Disponibilité des employés</a></li>
 	</ul>
 	</nav>
-
+	
+<section id="photo"> <img src="ratissage.jpg" title="ratissage"
+		alt="ratissage" id="ratissage" />
+		</section>
 
 
 	<div id="addEmploye">

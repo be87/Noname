@@ -22,6 +22,11 @@
 				des employés</a></li>
 	</ul>
 	</nav>
+	
+	<section id="photo"> <img src="lyon.jpg" title="lyon"
+		alt="lyon" id="lyon" />
+</section>
+	
 
 	<div id="selectEmploye">
 		<form action="DispoEmployeServlet" method="get">

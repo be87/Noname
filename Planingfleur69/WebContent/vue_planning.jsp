@@ -21,7 +21,9 @@
 	</ul>
 	</nav>
 
-
+<section id="photo"> <img src="plantation.jpg" title="plantation"
+		alt="plantation" id="plantation" />
+</section>
 
 	<div id="selectDate">
 		<form action="PlanningServlet" method="get">
