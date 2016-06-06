@@ -76,7 +76,12 @@ public class PlanningServlet extends HttpServlet {
 				t = null;
 			}
 
-			pu.associerEmploye(t, e);
+			try {
+				pu.associerEmploye(t, e);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 
 			ArrayList<Tache> lstTache = new ArrayList<Tache>();
 			lstTache.add(t);

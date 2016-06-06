@@ -83,11 +83,16 @@ public class PlanningUtil {
 	/*
 	 * associer un employer a une tache et inserer a la BD
 	 */
-	public void associerEmploye(Tache t, Employe e){
+	public void associerEmploye(Tache t, Employe e) throws SQLException{
 		List<Employe> lsEmp = new ArrayList<Employe>();
 		lsEmp.addAll(t.getLstEmploye());
+		System.out.println("Ez a lista: "+lsEmp);
 		lsEmp.add(e);
+		System.out.println(lsEmp);
 		t.setLstEmploye(lsEmp);
+		System.out.println(t.getLstEmploye());
+		DAODonnees DAOD = DAODonnees.getInstance();
+		DAOD.updateLSTEmployee(t);
 	}
 	
 	
