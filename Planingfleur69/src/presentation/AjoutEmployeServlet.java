@@ -1,6 +1,7 @@
 package presentation;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -11,22 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metier.EmployeUtil;
+
 /**
  * Servlet implementation class DispoEmployeServlet
  */
-@WebServlet("/DispoEmployeServlet")
-public class DispoEmployeServlet extends HttpServlet {
+@WebServlet("/AjoutEmployeServlet")
+public class AjoutEmployeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DispoEmployeServlet() {
+	public AjoutEmployeServlet() {
 		super();
-
 	}
-
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
@@ -35,29 +35,29 @@ public class DispoEmployeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		DispoEmployeBean bean = new DispoEmployeBean("", "", "", "");
+		AjoutEmployeBean bean = new AjoutEmployeBean("", "", "");
 		String nom = "";
 		String prenom = "";
-		Date date = new Date();
-		String dispo;
+		String etat = "";
 
 		if (request.getParameter("NOM") != null) {
+			nom = request.getParameter("NOM");
+			prenom = request.getParameter("PRENOM");
+			
+			EmployeUtil eu = EmployeUtil.getInstance();
 			try {
-				nom = request.getParameter("NOM");
-				prenom = request.getParameter("PRENOM");
-				date = sdf.parse(request.getParameter("DATE"));
-
-			} catch (ParseException e) {
-				e.printStackTrace();
+				eu.createEmploye(nom, prenom);
+				etat = " a été ajouté à la base de données avec succes";
+			} catch (SQLException e) {
+				etat = " n'a pas été ajouté à la base de données";
 			}
 
-			dispo = " OK  ";
 
-			bean = new DispoEmployeBean(nom, prenom, date.toString(), dispo);
+			bean = new AjoutEmployeBean(nom, prenom, etat);
 		}
 
 		request.setAttribute("bean", bean);
-		request.getRequestDispatcher("/vue_dispoemploye.jsp").forward(request, response);
+		request.getRequestDispatcher("/vue_ajoutemploye.jsp").forward(request, response);
 
 	}
 

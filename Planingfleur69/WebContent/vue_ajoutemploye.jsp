@@ -3,25 +3,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="styletabl.css" />
-
-<title>Planning tache</title>
-
+<title>Ajout Employe</title>
 </head>
 <body>
+	<div id="title">Ajout employe</div>
 
-	
-	<div id="selectDate">
-		<form action="PlanningServlet" method="get">
-			Date de debut : <input type="text" NAME="DATE1" value="${bean.date1}" /><br />
-			Date de fin : <input type="text" NAME="DATE2" value="${bean.date2}" /><br />
+	<div id="addEmploye">
+		<form action="AjoutEmployeServlet" method="get">
+			Nom : <input type="text" NAME="NOM" value="${bean.nom}" /><br />
+			Prenom : <input type="text" NAME="PRENOM" value="${bean.prenom}" /><br />
 			<input type="submit" NAME="SUBDATE" value="valider" />
 		</form>
 	</div>
 
-	<div id="result">${bean.taches}</div>
+	<div id="result">${bean.nom} ${bean.prenom} ${bean.etat}</div>
 
 </body>
 </html>

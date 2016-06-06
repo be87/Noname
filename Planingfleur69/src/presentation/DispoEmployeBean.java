@@ -47,6 +47,4 @@ public class DispoEmployeBean {
 		this.date = date;
 	}
 
-	
-
 }
