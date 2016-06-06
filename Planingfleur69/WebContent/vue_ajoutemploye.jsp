@@ -7,7 +7,20 @@
 <title>Ajout Employe</title>
 </head>
 <body>
-	<div id="title">Ajout employe</div>
+
+
+	<nav>
+	<ul>
+		<li><a href="vue_accueil.jsp">Accueil</a></li>
+		<li><a href="vue_planning.jsp">Planning</a></li>
+		<li class="active"><a href="vue_ajoutemploye.jsp">Gestion des
+				employés</a></li>
+		<li><a href="vue_dispoemploye.jsp">Disponibilité des
+				employés</a></li>
+	</ul>
+	</nav>
+
+
 
 	<div id="addEmploye">
 		<form action="AjoutEmployeServlet" method="get">
@@ -17,7 +30,7 @@
 		</form>
 	</div>
 
-	<div id="result">${bean.nom} ${bean.prenom} ${bean.etat}</div>
+	<div id="result">${bean.nom}${bean.prenom} ${bean.etat}</div>
 
 </body>
 </html>

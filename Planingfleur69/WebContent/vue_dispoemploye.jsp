@@ -7,7 +7,17 @@
 <title>Dispo Employe</title>
 </head>
 <body>
-	<div id="title">dispo employe</div>
+
+
+	<nav>
+	<ul>
+		<li><a href="vue_accueil.jsp">Accueil</a></li>
+		<li><a href="vue_planning.jsp">Planning</a></li>
+		<li><a href="vue_ajoutemploye.jsp">Gestion des employés</a></li>
+		<li class="active"><a href="vue_dispoemploye.jsp">Disponibilité
+				des employés</a></li>
+	</ul>
+	</nav>
 
 	<div id="selectEmploye">
 		<form action="DispoEmployeServlet" method="get">

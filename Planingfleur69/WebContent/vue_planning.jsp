@@ -7,12 +7,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="styletabl.css" />
 
-<title>Planning tache</title>
+
+
+<nav>
+<ul>
+	<li><a href="vue_accueil.jsp">Accueil</a></li>
+	<li class="active"><a href="vue_planning.jsp">Planning</a></li>
+	<li><a href="vue_ajoutemploye.jsp">Gestion des employés</a></li>
+	<li><a href="vue_dispoemploye.jsp">Disponibilité des employés</a></li>
+</ul>
+</nav>
 
 </head>
 <body>
 
-	
+
 	<div id="selectDate">
 		<form action="PlanningServlet" method="get">
 			Date de debut : <input type="text" NAME="DATE1" value="${bean.date1}" /><br />
