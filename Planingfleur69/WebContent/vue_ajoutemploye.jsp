@@ -4,8 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="espacevert.css">
 <title>Ajout Employe</title>
 </head>
+
+
 <body>
 
 
@@ -15,8 +18,7 @@
 		<li><a href="vue_planning.jsp">Planning</a></li>
 		<li class="active"><a href="vue_ajoutemploye.jsp">Gestion des
 				employés</a></li>
-		<li><a href="vue_dispoemploye.jsp">Disponibilité des
-				employés</a></li>
+		<li><a href="vue_dispoemploye.jsp">Disponibilité des employés</a></li>
 	</ul>
 	</nav>
 
@@ -30,7 +32,7 @@
 		</form>
 	</div>
 
-	<div id="result">${bean.nom}${bean.prenom} ${bean.etat}</div>
+	<div id="result">${bean.nom}${bean.prenom}${bean.etat}</div>
 
 </body>
 </html>

@@ -5,21 +5,22 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="styletabl.css" />
+<link rel="stylesheet" type="text/css" href="espacevert.css">
 
-
-
-<nav>
-<ul>
-	<li><a href="vue_accueil.jsp">Accueil</a></li>
-	<li class="active"><a href="vue_planning.jsp">Planning</a></li>
-	<li><a href="vue_ajoutemploye.jsp">Gestion des employés</a></li>
-	<li><a href="vue_dispoemploye.jsp">Disponibilité des employés</a></li>
-</ul>
-</nav>
+<title>Planning</title>
 
 </head>
+
 <body>
+	<nav>
+	<ul>
+		<li><a href="vue_accueil.jsp">Accueil</a></li>
+		<li class="active"><a href="vue_planning.jsp">Planning</a></li>
+		<li><a href="vue_ajoutemploye.jsp">Gestion des employés</a></li>
+		<li><a href="vue_dispoemploye.jsp">Disponibilité des employés</a></li>
+	</ul>
+	</nav>
+
 
 
 	<div id="selectDate">
